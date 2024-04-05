@@ -11,14 +11,7 @@ import stripe from 'stripe'
 import cors from 'cors'
 
 dotenv.config();
-    const stripeInstance = stripe(process.env.STRIPE_PRIVATE_KEY);
 
-// (async ()=>{
-//     const customers = await stripeInstance.customers.list({}, {
-//         stripeAccount: 'acct_1Oo2c8SDH3hvGB0z'
-//     })
-//     console.log(customers);
-// })()
 
 const port = process.env.PORT;
 // a fn to make DB connection & handle errors async-ly
@@ -36,23 +29,20 @@ app.get('/', (req, res)=>{
 })
 
 // app.get('/cors', (req, res) => {
-//     res.set('Access-Control-Allow-Origin', '*');
-// })
-
-app.use('/api/users', userRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/upload', uploadRoutes);
-app.use('/api/orders', orderRoutes);
-
-// app.get('/api/config/paypal', (req, res)=>{
-//     res.send({clientId: process.env.PAYPAL_CLIENT_ID});
-// });
-
-// const stripeInstance = stripe(process.env.STRIPE_PRIVATE_KEY)
-// app.post('/pay-stripe', async (req, res)=>{
-//     res.send({url});
-// });
-
+    //     res.set('Access-Control-Allow-Origin', '*');
+    // })
+    
+    app.use('/api/users', userRoutes);
+    app.use('/api/products', productRoutes);
+    app.use('/api/upload', uploadRoutes);
+    app.use('/api/orders', orderRoutes);
+    
+    const stripeInstance = stripe(process.env.STRIPE_PRIVATE_KEY);
+    
+    // app.post('/pay-stripe', async (req, res)=>{
+        //     res.send({url});
+        // });
+        
 // checkout api
 app.post("/api/create-checkout-session",async(req,res)=>{
     const {products} = req.body;
@@ -81,23 +71,6 @@ app.post("/api/create-checkout-session",async(req,res)=>{
     res.json({id:session.id})
  
 })
-// app.post('/create-checkout-session', async (req, res) => {
-//     const session = await stripe.checkout.sessions.create({
-//       line_items: [
-//         {
-//           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-//           price: '{{PRICE_ID}}',
-//           quantity: 1,
-//         },
-//       ],
-//       mode: 'payment',      // other are 'subscription' & 'setup'
-//       success_url: `http://localhost:3000/?success=true`,
-//       cancel_url: `http://localhost:3000/?canceled=true`,
-//     });
-  
-//     res.redirect(303, session.url);
-//   });
-  
 
 // for absolute path of current working folder(root-folder)
 const __dirname = path.resolve()
