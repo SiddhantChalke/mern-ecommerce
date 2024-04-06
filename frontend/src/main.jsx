@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute.jsx'
 import Profile from './pages/User/Profile.jsx'
 // Admin route
 import AdminRoutes from './pages/Admin/AdminRoutes.jsx'
-import UserList from './pages/Admin/userList.jsx'
+import UserList from './pages/Admin/UserList.jsx'
 import ProductList from './pages/Admin/ProductList.jsx'
 import ProductUpdate from './pages/Admin/ProductUpdate.jsx'
 import AllProducts from './pages/Admin/AllProducts.jsx'
@@ -47,7 +47,7 @@ const router = createBrowserRouter(
       <Route path='/placeorder' element={<PlaceOrder />} />
       <Route path='/order/:id' element={<Order />} />
       <Route path='/user-orders' element={<UserOrder />} />
-      <Route  path='/sucess' element={<Success />}/>
+      <Route  path='/success' element={<Success />}/>
       <Route  path='/cancel' element={<Cancel />}/>
 
       {/* Registered routes */}
@@ -76,9 +76,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <App /> */}
     <Provider store={store}>
-      {/* <PaypalScriptProvider> */}
         <RouterProvider router={router} />
-      {/* </PaypalScriptProvider> */}
     </Provider>
   </React.StrictMode>,
 )

@@ -8,19 +8,13 @@ import {
 } from "../../redux/api/productSlice";
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
-import {
-  FaBox,
-  FaClock,
-  FaShoppingCart,
-  FaStar,
-  FaStore,
-} from "react-icons/fa";
+import {FaBox,FaClock,FaShoppingCart,FaStar,FaStore,} from "react-icons/fa";
 import moment from "moment";
 import HeartIcon from "./HeartIcon";
 import Ratings from "./Ratings";
 import ProductTabs from "./ProductTabs";
 import { addToCart } from "../../redux/features/cart/cartSlice";
-import shoeImg from '../../../../uploads/domino.jpg'
+// import shoeImg from '../../../../uploads/domino.jpg'
 
 const ProductDetails = () => {
   const { id: productId } = useParams();
@@ -85,15 +79,15 @@ const ProductDetails = () => {
         <>
           <div className="flex flex-wrap relative items-between mt-[2rem] ml-[10rem]">
             <div>
-              <img
+              {/* <img
                 src={shoeImg}
                 className="w-full xl:w-[50rem] lg:w-[45rem] md:w-[30rem] sm:w-[20rem] mr-[2rem]"
-              />
-              {/* <img
+              /> */}
+              <img
                 src={product.image}
                 alt={product.name}
                 className="w-full xl:w-[50rem] lg:w-[45rem] md:w-[30rem] sm:w-[20rem] mr-[2rem]"
-              /> */}
+              />
 
               <HeartIcon product={product} />
             </div>
