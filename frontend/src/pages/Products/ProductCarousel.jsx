@@ -52,16 +52,16 @@ const ProductCarousel = () => {
               countInStock,
             }) => (
               <div key={_id}>
-                {/* <img
+                <img
                   src={image}
                   alt={name}
                   className="w-full rounded-lg object-cover h-[30rem]"
-                /> */}
-                <img
+                />
+                {/* <img
                   src='https://images.pexels.com/photos/267320/pexels-photo-267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                   alt={name}
                   className="w-full rounded-lg object-cover h-[30rem]"
-                />
+                /> */}
 
                 <div className="mt-4 flex justify-between">
                   <div className="one">

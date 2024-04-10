@@ -4,7 +4,7 @@ import { useUploadProductImageMutation, useCreateProductMutation } from "../../r
 // import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
 import AdminMenu from "./AdminMenu";
-import { UPLOAD_URL } from "../../redux/features/constants";
+import { BASE_URL, UPLOAD_URL } from "../../redux/features/constants";
 
 const ProductList = () => {
   const [image, setImage] = useState("");
@@ -58,10 +58,10 @@ const ProductList = () => {
       const res = await uploadProductImage(formData).unwrap();
       toast.success(res.message);
       // Replace backslashes with forward slashes in the image path
-    const imagePath = res.image.replace(/\\/g, "/");
+    // const imagePath = res.image.replace(/\\/g, "/");
     // const imagePath = res.image;
-      setImage(imagePath);
-      setImageUrl(imagePath);
+      setImage(res.image);
+      setImageUrl(res.image);
       // console.log(imageUrl);
     } catch (error) {
       toast.error(error?.data?.message || error.error);
@@ -78,8 +78,8 @@ const ProductList = () => {
           {imageUrl && (
             <div className="text-center">
               <img
-                src={imageUrl}
-                // src={`${UPLOAD_URL}${imageUrl}`}
+                // src={imageUrl}
+                src={`${BASE_URL}${imageUrl}`}
                 alt="product"
                 className="block mx-auto max-h-[200px]"
               />

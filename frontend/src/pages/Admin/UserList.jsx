@@ -3,6 +3,7 @@ import Loader from '../../components/Loader'
 import {toast} from 'react-toastify'
 import { FaEdit, FaCheck, FaTrash, FaTimes } from 'react-icons/fa'
 import {useGetUsersQuery, useDeleteUserMutation, useUpdateUserMutation} from '../../redux/api/userSlice'
+import Message from '../../components/Message'
 
 const UserList = () => {
   const {data: users, refetch, isLoading, error} = useGetUsersQuery();

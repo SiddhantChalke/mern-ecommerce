@@ -61,7 +61,7 @@ const router = createBrowserRouter(
         {/* Absolute route path "/userlist" nested under path "/admin" is not valid. An absolute child route path must start with the combined path of all its parent routes. */}
         <Route path='productlist' element={<ProductList />} />
         <Route path='productlist/:pageNo' element={<ProductList />} />
-        <Route path='allproducts' element={<AllProducts />} />
+        <Route path='allproductslist' element={<AllProducts />} />
         <Route path='updateproduct/:id' element={<ProductUpdate />} />
         <Route path='all-orders' element={<OrderList />} />
         <Route path='dashboard' element={<AdminDashboard />} />
